@@ -17,6 +17,7 @@ tar -zxf $ZIP_PATH -C $INSTALL_PATH
 
 # export path
 
+echo "-----> xmlsec1 path: ${INSTALL_PATH}"
 echo "-----> Exporting path"
 
 PROFILE_PATH="$BUILD_DIR/.profile.d/xmlsec1.sh"
