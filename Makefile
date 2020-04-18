@@ -1,12 +1,12 @@
 NS = uktrade
 NAME = xmlsec1
 INSTANCE = default
-VERSION ?= 1.2.24
+VERSION ?= 1.2.29
 
 .PHONY: build shell rm build release rmi
 
 xmlsec1-${VERSION}.sig:
-	wget https://www.aleksey.com/xmlsec/download/xmlsec1-${VERSION}.sig
+	curl -sO https://www.aleksey.com/xmlsec/download/$@
 
 build: xmlsec1-${VERSION}.sig
 	docker build -t $(NS)/$(NAME):$(VERSION) --build-arg VERSION=${VERSION} .

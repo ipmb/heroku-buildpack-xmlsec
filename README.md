@@ -1,19 +1,10 @@
 # heroku-buildpack-xmlsec
 
-A buildpack for installing xmlsec1 on Heroku
+A Cloud Native Buildpack for installing xmlsec1
 
 ## Usage
 
-You may need to use this buildpack in conjunction with another; use the `heroku` cli 
-
-    heroku buildpacks:add https://github.com/uktrade/heroku-buildpack-xmlsec#1.2.26
-    
-or use the heroku admin website to add that buildpack.
-
-
-Once xmlsec1 is installed via the buildpack you can run it with:
-
-    heroku run xmlsec1
+Add `ipmb/heroku-xmlsec-buildpack` to your list of buildpacks.
 
 ## Why Fork
 

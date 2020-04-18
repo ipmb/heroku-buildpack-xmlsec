@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -e
+
+BUILD_DIR=$1
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ZIP_PATH=$SCRIPT_DIR/../xmlsec.tar.gz
+# Create the install directory
+
+LAYER_DIR="${BUILD_DIR}/vendor"
+echo -e "launch = true" > "$LAYER_DIR.toml"
+
+mkdir -p $LAYER_DIR
+
+# copy binary
+
+tar -zxf $ZIP_PATH -C $LAYER_DIR
+
+mkdir $LAYER_DIR/{env,env.build}
+echo -n "${LAYER_DIR}" > $LAYER_DIR/env/LIBXMLSEC1
+echo -n "-I${LAYER_DIR}/include/xmlsec1" > $LAYER_DIR/env.build/CFLAGS
+
+# finish
+
+echo "-----> Installed xmlsec1"
